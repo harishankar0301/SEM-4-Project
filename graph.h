@@ -4,15 +4,28 @@
 using namespace std;
 class graph
 {
-    int v, e;
-    vector<vector<int>> adj;
+    int v;
+    int adj[5][5];
 
 public:
-    graph(int nv, int e) : adj(nv, vector<int>(nv, 0))
+    graph()
     {
-        v = nv;
-        this->e = e;
+
+        v = 5;
+        for (int i = 0; i < v; i++)
+        {
+            for (int j = 0; j < v; j++)
+            {
+                adj[i][j] = 0;
+            }
+        }
     }
+    void addEdge(int u, int v, int d)
+    {
+        adj[u][v] = d;
+        adj[v][u] = d;
+    }
+    /*
     void get_graph()
     {
         for (int i = 0; i < e; i++)
@@ -23,15 +36,18 @@ public:
             adj[v][u] = d;
         }
     }
+    */
     void printGraph()
     {
         cout << "\nAdjacency matrix \n";
-        for (int i = 0; i < v; ++i)
+        cout << "VVV: " << v << endl;
+        for (int i = 0; i < v; i++)
         {
-
-            for (auto x : adj[i])
-                cout << x << " ";
-            printf("\n");
+            for (int j = 0; j < v; j++)
+            {
+                cout << adj[i][j] << " ";
+            }
+            cout << endl;
         }
     }
 };
