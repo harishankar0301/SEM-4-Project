@@ -17,10 +17,10 @@ public:
     {
         for (int i = 0; i < e; i++)
         {
-            int u, v,w;
-            cin >> u >> v>>w;
-            adj[u][v] = w;
-            adj[v][u] = w;
+            int u, v,d;
+            cin >> u >> v>>d;
+            adj[u][v] = d;
+            adj[v][u] = d;
         }
     }
     void printGraph()
